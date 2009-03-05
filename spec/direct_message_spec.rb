@@ -11,6 +11,9 @@ describe "Twitter::DirectMessage" do
   <created_at>Sat Mar 10 22:10:37 +0000 2007</created_at>
   <sender_screen_name>al3x</sender_screen_name>
   <recipient_screen_name>jnunemaker</recipient_screen_name>
+  <sender>
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/64086364/rubyconfpro2_normal.jpg</profile_image_url>
+  </sender>
 </direct_message>
 EOF
     d = Twitter::DirectMessage.new do |d|
@@ -21,6 +24,7 @@ EOF
       d.created_at            = 'Sat Mar 10 22:10:37 +0000 2007'
       d.sender_screen_name    = 'al3x'
       d.recipient_screen_name = 'jnunemaker'
+      d.sender_profile_image_url = 'http://s3.amazonaws.com/twitter_production/profile_images/64086364/rubyconfpro2_normal.jpg'
     end
     d2 = Twitter::DirectMessage.new_from_xml(Hpricot.XML(xml))
     
@@ -31,5 +35,6 @@ EOF
     d.created_at.should == d2.created_at
     d.sender_screen_name.should == d2.sender_screen_name
     d.recipient_screen_name.should == d2.recipient_screen_name
+    d.sender_profile_image_url.should == d2.sender_profile_image_url
   end
 end

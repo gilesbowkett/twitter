@@ -2,7 +2,14 @@ module Twitter
   class DirectMessage
     include EasyClassMaker
     
-    attributes :id, :text, :sender_id, :recipient_id, :created_at, :sender_screen_name, :recipient_screen_name
+    attributes :id,
+               :text,
+               :sender_id,
+               :recipient_id,
+               :created_at,
+               :sender_screen_name,
+               :recipient_screen_name,
+               :sender_profile_image_url
     
     class << self
       # Creates a new status from a piece of xml
@@ -15,6 +22,7 @@ module Twitter
           d.created_at            = (xml).at('created_at').innerHTML
           d.sender_screen_name    = (xml).at('sender_screen_name').innerHTML
           d.recipient_screen_name = (xml).at('recipient_screen_name').innerHTML
+          d.sender_profile_image_url = (xml).at('sender').at('profile_image_url').innerHTML
         end
       end
     end
