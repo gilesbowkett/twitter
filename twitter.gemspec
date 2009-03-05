@@ -2,10 +2,10 @@
 
 Gem::Specification.new do |s|
   s.name = %q{twitter}
-  s.version = "0.4.2"
+  s.version = "0.4.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
-  s.authors = ["John Nunemaker"]
+  s.authors = ["John Nunemaker", "Giles Bowkett"]
   s.date = %q{2009-02-11}
   s.default_executable = %q{twitter}
   s.description = %q{a command line interface for twitter, also a library which wraps the twitter api}
